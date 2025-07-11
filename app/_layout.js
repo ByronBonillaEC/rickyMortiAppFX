@@ -1,9 +1,11 @@
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { Provider } from 'react-redux';
+import { store } from '../store';
 
 export default function RootLayout() {
   return (
-    <>
+    <Provider store={store}>
       <StatusBar style="auto" />
       <Stack>
         <Stack.Screen 
@@ -39,6 +41,6 @@ export default function RootLayout() {
           }} 
         />
       </Stack>
-    </>
+    </Provider>
   );
 }
