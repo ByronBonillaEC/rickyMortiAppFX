@@ -28,7 +28,6 @@ export function Main() {
                         )
                     }
                 >
-
                 </FlatList>
             )
         }
