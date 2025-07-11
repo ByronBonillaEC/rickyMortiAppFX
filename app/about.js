@@ -29,6 +29,7 @@ export default function About() {
         <Text style={styles.tech}>• Expo Router</Text>
         <Text style={styles.tech}>• Rick and Morty API</Text>
         <Text style={styles.tech}>• React Native SVG</Text>
+        <Text style={styles.tech}>• Redux for React Native</Text>
 
         <Link href="/" style={styles.backButton}>
           <Text style={styles.backButtonText}>← Volver al inicio</Text>
