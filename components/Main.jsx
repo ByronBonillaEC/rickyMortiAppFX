@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getPersonajes } from "../lib/rickyMorty";
 import { CharacterCard } from "./CharacterCard";
-import { ActivityIndicator, FlatList, ScrollView } from "react-native";
+import { ActivityIndicator, FlatList, View } from "react-native";
 
 export function Main() {
 
@@ -15,7 +15,7 @@ export function Main() {
   }, []);
 
     return (
-        <>
+        <View style={{ flex: 1 }}>
             {personajes.length === 0 ? (
                 <ActivityIndicator size={"large"} />
             ): (
@@ -31,6 +31,6 @@ export function Main() {
                 </FlatList>
             )
         }
-        </>
+        </View>
     );
 }
