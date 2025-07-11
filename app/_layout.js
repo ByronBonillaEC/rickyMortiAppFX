@@ -25,6 +25,19 @@ export default function RootLayout() {
             },
           }} 
         />
+        <Stack.Screen 
+          name="[id]" 
+          options={{ 
+            title: 'Detalles del Episodio',
+            headerStyle: {
+              backgroundColor: '#333',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }} 
+        />
       </Stack>
     </>
   );
