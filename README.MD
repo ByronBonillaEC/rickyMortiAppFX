@@ -93,3 +93,61 @@ export default function EpisodePage() {
 ### Resultado:
 
 Al tocar la imagen de un personaje → Navega a los detalles de su primer episodio
+
+-----------------Redux
+npm install @reduxjs/toolkit react-redux
+
+## 11.- Implementar Redux para Cache de Personajes
+
+### Paso 1: Crear la estructura de carpetas
+
+```
+store/
+├── index.js          (Store principal)
+└── charactersSlice.js (Slice de personajes)
+```
+
+### Paso 2: Crear charactersSlice.js
+
+- Definir estado inicial: `{ data: [], loading: false, error: null, lastFetch: null }`
+- Crear `fetchCharacters` thunk con `createAsyncThunk`
+- Definir reducers para manejar pending, fulfilled, rejected
+
+### Paso 3: Configurar el store en store/index.js
+
+```javascript
+import { configureStore } from "@reduxjs/toolkit";
+import charactersReducer from "./charactersSlice";
+
+export const store = configureStore({
+  reducer: {
+    characters: charactersReducer,
+  },
+});
+```
+
+### Paso 4: Configurar Provider en \_layout.js
+
+```javascript
+import { Provider } from "react-redux";
+import { store } from "../store";
+
+export default function RootLayout() {
+  return <Provider store={store}>{/* ... resto del código */}</Provider>;
+}
+```
+
+### Paso 5: Actualizar Main.jsx para usar Redux
+
+- Reemplazar `useState` y `useEffect` con `useSelector` y `useDispatch`
+- Implementar cache inteligente (solo fetch si no hay datos o han pasado 5 min)
+- Agregar pull-to-refresh y manejo de errores
+
+### Beneficios del Cache con Redux:
+
+✅ **Performance**: No más fetch repetidos innecesarios
+✅ **Offline**: Datos disponibles sin conexión
+✅ **UX**: Carga instantánea en navegaciones
+✅ **Pull-to-refresh**: Actualización manual disponible
+✅ **Manejo de errores**: Botón de reintentar
+✅ **Cache inteligente**: Auto-refresh cada 5 minutos
